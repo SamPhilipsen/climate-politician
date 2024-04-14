@@ -100,4 +100,28 @@ public class Province : MonoBehaviour
             pollution += building.buildingPollution;
         }
     }
+
+    public int GetBuildingProfits()
+    {
+        int totalBuildingProfit = 0;
+
+        foreach (Building building in buildings)
+        {
+            totalBuildingProfit += building.buildingIncome;
+        }
+
+        return totalBuildingProfit;
+    }
+
+    public int GetBuildingPollution()
+    {
+        int totalBuildingPollution = 0;
+
+        foreach (Building building in buildings)
+        {
+            totalBuildingPollution += building.buildingPollution;
+        }
+
+        return totalBuildingPollution;
+    }
 }

@@ -7,13 +7,10 @@ public class PlayerResource : MonoBehaviour
     public int money = 20000;
     public int pollution = 60;
 
-    public stats(int money, int pollution)
+    public static PlayerResource Instance;
+
+    private void Start()
     {
-        this.money = money;
-        this.pollution = pollution;
-
-        return stats;
+        Instance = this;
     }
-    
-
 }
