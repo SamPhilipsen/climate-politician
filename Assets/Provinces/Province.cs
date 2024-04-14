@@ -49,8 +49,13 @@ public class Province : MonoBehaviour
         if (playerResource.money >= building.buildingCost && building.buildingSpace <= buildingSpace)
             Debug.Log("You can't afford this building or you don't have enough space for it.");
         else
+        {
+            Debug.Log("Building added to province.");
             buildings.Add(building);
+        }
+            
     }
+
 
     public ProvinceInfo GetProvinceInfo()
     {
