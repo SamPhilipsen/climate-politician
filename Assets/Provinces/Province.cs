@@ -25,19 +25,21 @@ public class Province : MonoBehaviour
     public PopType popType;
     public int happiness = 50;
     public int buildingSpace = 100;
+    public int provinceIncome = 0;
+    public int pollution = 0;
 
     public List<Building> buildings = new List<Building>();
 
     // Reference to the PlayerResource instance
     private PlayerResource playerResource;
 
-    public Province(PopType popType, int happiness, int buildingSpace)
+    public Province(PopType popType, int happiness, int buildingSpace, int pollution)
     {
         this.popType = popType;
         this.happiness = happiness;
         this.buildingSpace = buildingSpace;
+        this.provinceIncome = provinceIncome;
 
-        // Create an instance of PlayerResource
         playerResource = new PlayerResource();
     }
 
@@ -76,5 +78,26 @@ public class Province : MonoBehaviour
             nuclearAmount = nuclearAmount,
             coalAmount = coalAmount,
         };
+    }
+    
+    public void RemoveBuilding(Building building)
+    {
+        buildings.Remove(building);
+    }
+
+    public void UpdateProvinceIncome()
+    {
+        foreach (Building building in buildings)
+        {
+            provinceIncome += building.buildingIncome;
+        }
+    }
+
+    public void UpdatePollution()
+    {
+        foreach (Building building in buildings)
+        {
+            pollution += building.buildingPollution;
+        }
     }
 }

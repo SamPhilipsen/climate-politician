@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class NuclearPowerplant : Building
 {
-    public NuclearPowerplant(int cost, int income, int space) : base(BuildingType.NuclearPowerplant, cost, income, space)
+    public NuclearPowerplant(int cost, int income, int space, int pollution) : base(BuildingType.NuclearPowerplant, cost, income, space, pollution)
     {
         buildingType = BuildingType.NuclearPowerplant;
         buildingIncome = 0;
+        pollution = 0;
     }
 }
