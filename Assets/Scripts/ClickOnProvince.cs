@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class ClickOnProvince : MonoBehaviour, IClickableElement
 {
+    public GameObject infoDisplayPrefab;
+
     private Province province;
     private Vector3 originalScale; // Store the original scale of the object
+
+    private GameObject infoDisplayRef;
+    private ProvinceInfoDisplay infoDisplay;
 
     private void Start()
     {
         province = GetComponent<Province>();
         originalScale = transform.localScale; // Store the original scale
+
+        infoDisplayRef = Instantiate(infoDisplayPrefab);
+        infoDisplay = infoDisplayRef.GetComponent<ProvinceInfoDisplay>();
+        infoDisplay.InitializeDisplay();
+        infoDisplay.gameObject.SetActive(false);
     }
 
-    public void OnClick()
+    public void OnClick(Vector2 mouseLocation)
     {
-        Debug.Log(province.happiness);
+        infoDisplayRef.SetActive(true);
+        infoDisplayRef.transform.position = mouseLocation;
+
+        infoDisplay.DisplayProvinceInfo(province.GetProvinceInfo());
     }
 
     public void OnHover()

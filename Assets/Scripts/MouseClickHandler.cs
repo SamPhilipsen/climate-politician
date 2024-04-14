@@ -6,8 +6,6 @@ public class MouseClickHandler : MonoBehaviour
 {
     private ClickOnProvince currentHoveredProvince;
 
-    public GameObject stats_menu; // Reference to the prefab of your stats menu
-
     void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -19,9 +17,7 @@ public class MouseClickHandler : MonoBehaviour
             if (!hit.collider) return;
             if (hit.collider.TryGetComponent<ClickOnProvince>(out var clickOnProvince))
             {
-                clickOnProvince.OnClick();
-                // Instantiate the stats menu if the click hits a province
-                Instantiate(stats_menu, hit.point, Quaternion.identity);
+                clickOnProvince.OnClick(new Vector2(mousePos.x, mousePos.y));
             }
         }
 
