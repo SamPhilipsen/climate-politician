@@ -32,5 +32,6 @@ public class TurnSystem : MonoBehaviour
 
         PlayerResource.Instance.money += MapManager.Instance.GetTotalProvinceProfit();
         PlayerResource.Instance.pollution += MapManager.Instance.GetTotalProvincePollution();
+        PlayerResource.Instance.happiness += MapManager.Instance.GetTotalProvinceHappiness();
     }
 }

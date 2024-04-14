@@ -21,7 +21,6 @@ public class MapManager : MonoBehaviour
         {
             totalProvinceProfit += province.GetBuildingProfits();
         }
-
         return totalProvinceProfit;
     }
 
@@ -33,7 +32,17 @@ public class MapManager : MonoBehaviour
         {
             totalProvincePollution += province.GetBuildingProfits();
         }
-
         return totalProvincePollution;
+    }
+
+    public int GetTotalProvinceHappiness()
+    {
+        int totalProvinceHappiness = 0;
+
+        foreach (Province province in provinceList)
+        {
+            totalProvinceHappiness += province.happiness;
+        }
+        return (int)Mathf.Floor(totalProvinceHappiness / provinceList.Count);
     }
 }
