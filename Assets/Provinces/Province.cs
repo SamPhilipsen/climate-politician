@@ -25,7 +25,6 @@ public class Province : MonoBehaviour
     public PopType popType;
     public int happiness = 50;
     public int buildingSpace = 100;
-    public int provinceIncome = 0;
     public int pollution = 0;
 
     public List<Building> buildings = new List<Building>();
@@ -38,7 +37,7 @@ public class Province : MonoBehaviour
         this.popType = popType;
         this.happiness = happiness;
         this.buildingSpace = buildingSpace;
-        this.provinceIncome = provinceIncome;
+        this.pollution = pollution;
 
         playerResource = new PlayerResource();
     }
@@ -90,19 +89,35 @@ public class Province : MonoBehaviour
         buildings.Remove(building);
     }
 
-    public void UpdateProvinceIncome()
-    {
-        foreach (Building building in buildings)
-        {
-            provinceIncome += building.buildingIncome;
-        }
-    }
-
     public void UpdatePollution()
     {
         foreach (Building building in buildings)
         {
             pollution += building.buildingPollution;
         }
+    }
+
+    public int GetBuildingProfits()
+    {
+        int totalBuildingProfit = 0;
+
+        foreach (Building building in buildings)
+        {
+            totalBuildingProfit += building.buildingIncome;
+        }
+
+        return totalBuildingProfit;
+    }
+
+    public int GetBuildingPollution()
+    {
+        int totalBuildingPollution = 0;
+
+        foreach (Building building in buildings)
+        {
+            totalBuildingPollution += building.buildingPollution;
+        }
+
+        return totalBuildingPollution;
     }
 }
