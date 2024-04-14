@@ -15,7 +15,9 @@ public class ClickOnProvince : MonoBehaviour, IClickableElement
 
     public void OnClick()
     {
+
         Debug.Log(province.happiness);
+
     }
 
     public void OnHover()

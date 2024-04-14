@@ -6,7 +6,7 @@ public class MouseClickHandler : MonoBehaviour
 {
     private ClickOnProvince currentHoveredProvince;
 
-    public GameObject stats_menu; // Reference to the prefab of your stats menu
+    public GameObject stats_menu; // Reference to your stats menu
 
     void Update()
     {

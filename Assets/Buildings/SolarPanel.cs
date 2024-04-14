@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SolarPanel : Building
 {
-    public SolarPanel(int cost, int income, int space) : base(BuildingType.SolarPanel, cost, income, space)
+    public SolarPanel(int cost, int income, int space, int pollution) : base(BuildingType.SolarPanel, cost, income, space, pollution)
     {
         buildingType = BuildingType.SolarPanel;
         buildingIncome = 0;
+        pollution = 0;
     }
 }
