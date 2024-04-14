@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/*public class TurnSystem : MonoBehaviour
+public class TurnSystem : MonoBehaviour
 {
     int currentTurn = 0;
     int maxTurns = 10;
