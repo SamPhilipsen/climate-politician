@@ -16,7 +16,6 @@ public class ClickOnProvince : MonoBehaviour, IClickableElement
     {
         province = GetComponent<Province>();
         originalScale = transform.localScale; // Store the original scale
-
         infoDisplayRef = Instantiate(infoDisplayPrefab);
         infoDisplay = infoDisplayRef.GetComponent<ProvinceInfoDisplay>();
         infoDisplay.InitializeDisplay();
@@ -25,6 +24,7 @@ public class ClickOnProvince : MonoBehaviour, IClickableElement
 
     public void OnClick(Vector2 mouseLocation)
     {
+        MapManager.Instance.selectedProvince = province;
         infoDisplayRef.SetActive(true);
         infoDisplayRef.transform.position = mouseLocation;
 

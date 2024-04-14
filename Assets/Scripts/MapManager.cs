@@ -6,6 +6,7 @@ public class MapManager : MonoBehaviour
 {
     private List<Province> provinceList;
     public static MapManager Instance;
+    public Province selectedProvince;
 
     void Start()
     {

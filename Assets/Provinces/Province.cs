@@ -29,32 +29,30 @@ public class Province : MonoBehaviour
 
     public List<Building> buildings = new List<Building>();
 
-    // Reference to the PlayerResource instance
-    private PlayerResource playerResource;
-
     public Province(PopType popType, int happiness, int buildingSpace, int pollution)
     {
         this.popType = popType;
         this.happiness = happiness;
         this.buildingSpace = buildingSpace;
         this.pollution = pollution;
-
-        playerResource = new PlayerResource();
     }
 
     public void AddBuilding(Building building)
     {
         // Use the instance of PlayerResource to access its members
-        if (playerResource.money >= building.buildingCost && building.buildingSpace <= buildingSpace)
-            Debug.Log("You can't afford this building or you don't have enough space for it.");
+        if (PlayerResource.Instance.money - building.buildingCost <= 0)
+        {
+            Debug.LogError("You can't afford this building or you don't have enough space for it.");
+            return;
+        }
         else
         {
             Debug.Log("Building added to province.");
             buildings.Add(building);
+            PlayerResource.Instance.money -= building.buildingCost;
         }
             
     }
-
 
     public ProvinceInfo GetProvinceInfo()
     {

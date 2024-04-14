@@ -7,7 +7,7 @@ public class Windmill : Building
     public Windmill(int cost, int income, int space, int pollution) : base(BuildingType.Windmill, cost, income, space, pollution)
     {
         buildingType = BuildingType.Windmill;
-        buildingIncome = 0;
-        pollution = 0;
+        buildingIncome = income;
+        buildingPollution = pollution;
     }
 }

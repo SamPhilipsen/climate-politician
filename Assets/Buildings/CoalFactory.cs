@@ -7,7 +7,7 @@ public class CoalFactory : Building
     public CoalFactory(int cost, int income, int space, int pollution) : base(BuildingType.CoalFactory, cost, income, space, pollution)
     {
         buildingType = BuildingType.CoalFactory;
-        buildingIncome = 0;
-        pollution = 0;
+        buildingIncome = income;
+        buildingPollution = pollution;
     }
 }
